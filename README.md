@@ -2,6 +2,8 @@
 
 A cli program that shows the top headlines of newsapi for Germany
 
+![Logo of clinews](logo.png)
+
 ## Building
 
 ### With [Nix](https://nixos.org)
