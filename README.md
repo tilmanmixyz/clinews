@@ -10,7 +10,7 @@ Make sure you're in a directory where you have read permissions
 then run the folloing commands
 
 ```sh
-nix build "github:Kanavaar/rust-clinews"
+nix build "github:tilmanmixyz/clinews"
 ```
 
 #### Or simply running the program
@@ -18,7 +18,7 @@ nix build "github:Kanavaar/rust-clinews"
 Requires [Nix](https://nixos.org)
 
 ```sh
-nix run "github:Kanavaar/rust-clinews"
+nix run "github:tilmanmixyz/clinews"
 ```
 
 ### Without nix
@@ -26,8 +26,8 @@ nix run "github:Kanavaar/rust-clinews"
 Because there are no dependecies expect cargo you can just run:
 
 ```sh
-git clone https://github.com/Kanavaar/rust-clinews
-cd rust-clinews
+git clone https://github.com/tilmanmixyz/clinews
+cd clinews
 cargo run
 ```
 
@@ -36,4 +36,4 @@ cargo run
 
 Apache-2.0
 
-More information at <https://github.com/Kanavaar/rust-clinews/blob/main/LICENSE>
+More information at <https://github.com/tilmanmixyz/clinews/blob/main/LICENSE>
