@@ -20,6 +20,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
 
     render_articles(articles.articles());
+    println!("News are provided by https://newsapi.org");
 
     Ok(())
 }
