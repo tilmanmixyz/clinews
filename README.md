@@ -12,7 +12,7 @@ Make sure you're in a directory where you have read permissions
 then run the folloing commands
 
 ```sh
-nix build "git+https://codeberg.org:tilmanmixyz/clinews"
+nix build "git+https://codeberg.org/tilmanmixyz/clinews"
 ```
 
 #### Or simply running the program
@@ -20,7 +20,7 @@ nix build "git+https://codeberg.org:tilmanmixyz/clinews"
 Requires [Nix](https://nixos.org)
 
 ```sh
-nix run "git+https://codeberg.org:tilmanmixyz/clinews"
+nix run "git+https://codeberg.org/tilmanmixyz/clinews"
 ```
 
 ### Without nix
