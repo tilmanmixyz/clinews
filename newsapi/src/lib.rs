@@ -131,10 +131,19 @@ impl NewsApi {
         let url = self.prepare_url()?;
 
         let client = reqwest::Client::new();
-        let req = client.request(reqwest::Method::GET, url)
-            .header("X-Api-Key", &self.api_key).build()?;
+        let req = client
+            .request(reqwest::Method::GET, url)
+            .header("X-Api-Key", &self.api_key)
+            .header("User-Agent", "clinews")
+            .build()
+            .map_err(|e| NewsApiError::AsyncRequestFailed(e))?;
 
-        let res: NewsApiResponse = client.execute(req).await?.json().await?;
+        let res: NewsApiResponse = client
+            .execute(req)
+            .await?
+            .json()
+            .await
+            .map_err(|e| NewsApiError::AsyncRequestFailed(e))?;
 
         match res.status.as_str() {
             "ok" => Ok(res),
