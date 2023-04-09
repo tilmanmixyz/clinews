@@ -11,4 +11,5 @@ strip = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-newsapi = {version = "0.1.0", path = "./newsapi"} 
+newsapi = {version = "0.2.0", path = "./newsapi", features = ["async"]} 
+tokio = { version = "1", features = ["full"] }

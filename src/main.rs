@@ -1,21 +1,25 @@
 use std::error::Error;
-use newsapi::{Articles, get_articles};
+use newsapi::{NewsApi, Article, Country, Endpoint};
 
 
-fn render_articles(articles: Articles) {
-    for a in &articles.articles {
-        println!("{}", a.title);
-        println!("{}\n\n", a.url);
+fn render_articles(articles: &Vec<Article>) {
+    for a in articles {
+        println!("{}", a.title());
+        println!("{}\n\n", a.url());
     }
 }
 
-fn main() -> Result<(), Box<dyn Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error>> {
     let api_key: &str = "f5fd5e5064bf44ae862e45f6a08c945a";
-    let url: &str = "https://newsapi.org/v2/top-headlines?country=de";
 
-    let articles = get_articles(url, api_key)?;
+    let mut newsapi = NewsApi::new(&api_key);
+    newsapi.endpoint(Endpoint::TopHeadlines).country(Country::De);
 
-    render_articles(articles);
+    let articles = newsapi.fetch_async().await?;
+
+
+    render_articles(articles.articles());
 
     Ok(())
 }
