@@ -12,7 +12,7 @@ Make sure you're in a directory where you have read permissions
 then run the folloing commands
 
 ```sh
-nix build "github:tilmanmixyz/clinews"
+nix build "git+https://codeberg.org:tilmanmixyz/clinews"
 ```
 
 #### Or simply running the program
@@ -20,7 +20,7 @@ nix build "github:tilmanmixyz/clinews"
 Requires [Nix](https://nixos.org)
 
 ```sh
-nix run "github:tilmanmixyz/clinews"
+nix run "git+https://codeberg.org:tilmanmixyz/clinews"
 ```
 
 ### Without nix
@@ -28,7 +28,7 @@ nix run "github:tilmanmixyz/clinews"
 Because there are no dependecies expect cargo you can just run:
 
 ```sh
-git clone https://github.com/tilmanmixyz/clinews
+git clone https://codeberg.org/tilmanmixyz/clinews
 cd clinews
 cargo run
 ```
