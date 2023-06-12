@@ -16,7 +16,7 @@
     };
     rustToolchain = fenix.packages.${system}.fromToolchainFile {
       dir = ./.;
-      sha256 = pkgs.lib.fakeSha256;
+      sha256 = "sha256-gdYqng0y9iHYzYPAdkC/ka3DRny3La/S5G8ASj0Ayyc=";
     };
     naersk-lib = naersk.lib.${system}.override {
       cargo = rustToolchain;
@@ -36,11 +36,27 @@
       version = "0.1.0";
       inherit nativeBuildInputs buildInputs;
     };
+    dockerImage = pkgs.dockerTools.buildImage {
+      name = "clinews";
+      tag = "latest";
+      copyToRoot = [ bin ];
+      config = {
+        Cmd = [ "${bin}/bin/clinews" ];
+      };
+    };
   in
   {
     packages = {
-      inherit bin;
+      inherit bin dockerImage;
       default = bin;
+    };
+    apps = {
+      default = flake-utils.lib.mkApp {
+        drv = bin;
+      };
+    };
+    devShell = pkgs.mkShell {
+      inherit nativeBuildInputs buildInputs;
     };
   });
 }
