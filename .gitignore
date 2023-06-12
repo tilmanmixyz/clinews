@@ -7,4 +7,5 @@
 
 /.direnv
 
-/*/target
+/**/target
+/result
