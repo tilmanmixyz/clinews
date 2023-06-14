@@ -1,4 +1,4 @@
-FROM docker.io/rust:buster AS build
+FROM docker.io/rust:slim-bookworm AS build
 WORKDIR /app
 COPY . /app
 RUN apt-get install -y \
