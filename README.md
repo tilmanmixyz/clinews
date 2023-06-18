@@ -1,5 +1,7 @@
 # Clinews
 
+[![dependency status](https://deps.rs/repo/codeberg/tilmanmixyz/clinews/status.svg)](https://deps.rs/repo/codeberg/tilmanmixyz/clinews)
+
 A cli program that shows the top headlines of newsapi for Germany
 
 ![Logo of clinews](logo.png)
